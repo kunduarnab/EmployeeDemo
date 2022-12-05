@@ -4,14 +4,11 @@ package com.arnabkundu.employeedemo.util
 
 import android.annotation.SuppressLint
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
-import android.graphics.Rect
+import android.text.Editable
+import android.text.TextWatcher
 import android.view.LayoutInflater
 import android.view.View
-import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import android.widget.*
-import androidx.core.widget.NestedScrollView
 import com.arnabkundu.employeedemo.R
 import com.google.android.material.bottomsheet.BottomSheetDialog
 import com.google.android.material.snackbar.Snackbar
@@ -20,21 +17,26 @@ import java.util.*
 
 object HelperFunctions {
 
+    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
+        this.addTextChangedListener(object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
+            }
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+            }
+
+            override fun afterTextChanged(editable: Editable?) {
+                afterTextChanged.invoke(editable.toString())
+            }
+        })
+    }
+
     fun EditText.value(): String {
         return text.toString().trim()
     }
 
-    fun EditText.onSearchSubmit(func: () -> Unit) {
-        setOnEditorActionListener { _, actionId, _ ->
-            if (actionId == EditorInfo.IME_ACTION_SEARCH) {
-                func()
-            }
-            true
-        }
-    }
-
     @SuppressLint("InflateParams")
-    fun Context.showDialog(
+    fun Context.showCustomDialog(
         title: String,
         message: String,
         isNoVisible: Boolean = false,
@@ -72,43 +74,6 @@ object HelperFunctions {
 
     fun View.hide() {
         visibility = View.GONE
-    }
-
-    fun NestedScrollView.setAnimatedTitle(
-        layoutTitleTextView: TextView,
-        navbarTitleTextView: TextView,
-        title: String
-    ) {
-        /*
-         NOTE: please add android:windowSoftInputMode="stateHidden|adjustResize"
-         to show the bottom layout on keyboard shown
-         */
-        val scrollBounds = Rect()
-        getHitRect(scrollBounds)
-        setOnScrollChangeListener(NestedScrollView.OnScrollChangeListener { _, _, _, _, _ ->
-            if (layoutTitleTextView.getLocalVisibleRect(scrollBounds)) {
-                if (!layoutTitleTextView.getLocalVisibleRect(scrollBounds)
-                    || scrollBounds.height() < layoutTitleTextView.height
-                ) {
-                    navbarTitleTextView.text = ""
-                } else {
-                    navbarTitleTextView.text = ""
-                }
-            } else {
-                @SuppressLint("SetTextI18n")
-                navbarTitleTextView.text = title
-            }
-        })
-    }
-
-    fun EditText.showKeyboard() {
-        (this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
-            .showSoftInput(this, InputMethodManager.SHOW_IMPLICIT)
-    }
-
-    fun EditText.hideKeyboard() {
-        (this.context.getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager)
-            .showSoftInput(this, InputMethodManager.HIDE_IMPLICIT_ONLY)
     }
 
     fun Context.toast(message: String) {

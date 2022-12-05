@@ -25,6 +25,7 @@ class ActivitySplash : AppCompatActivity() {
 
         Intent(this, ActivityDashboard::class.java).also {
             startActivity(it)
+            finish()
         }
     }
 }
