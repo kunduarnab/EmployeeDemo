@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.employee.screens.ListEmployeeActivity">
+
+    <!-- Custom NavBar -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal">
+        <ImageButton
+            android:id="@+id/backBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_back"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"/>
+        <ImageButton
+            android:id="@+id/searchBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_search"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+</LinearLayout>

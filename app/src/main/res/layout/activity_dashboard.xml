@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background"
+    tools:context=".ui.dashboard.ActivityDashboard">
+
+    <!-- Custom NavBar -->
+    <LinearLayout
+        android:id="@+id/header"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_alignParentTop="true"
+        android:background="@color/white"
+        android:elevation="2dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:fontFamily="@font/bold"
+            android:gravity="center|start"
+            android:paddingStart="20dp"
+            android:paddingEnd="20dp"
+            android:drawablePadding="10dp"
+            android:text="Employee Demo"
+            android:textColor="@color/h2"
+            android:textSize="18sp"
+            app:drawableStartCompat="@drawable/ic_employee" />
+
+        <ImageButton
+            android:id="@+id/powerBtn"
+            android:layout_width="60dp"
+            android:layout_height="match_parent"
+            android:background="?actionBarItemBackground"
+            android:src="@drawable/ic_power"
+            tools:ignore="ContentDescription" />
+    </LinearLayout>
+
+</LinearLayout>
