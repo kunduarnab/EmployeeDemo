@@ -105,14 +105,13 @@ class AddEmployeeActivity : AppCompatActivity(), View.OnClickListener {
                     object : DialogListener {
                         override fun onPressedYes(dialog: BottomSheetDialog) {
                             dialog.dismiss()
-                            vm.updateEmployee(
-                                Employee(
-                                    ui.name.value(),
-                                    ui.number.value(),
-                                    ui.salary.value()
-                                ),
-                                savedEmployee!!.uid
+                            val data = Employee(
+                                savedEmployee!!.uid,
+                                ui.name.value(),
+                                ui.number.value(),
+                                ui.salary.value()
                             )
+                            vm.updateEmployee(data)
                             onBackPressedDispatcher.onBackPressed()
                         }
 
@@ -124,6 +123,7 @@ class AddEmployeeActivity : AppCompatActivity(), View.OnClickListener {
             } else {
                 vm.insertEmployee(
                     Employee(
+                        0,
                         ui.name.value(),
                         ui.number.value(),
                         ui.salary.value()

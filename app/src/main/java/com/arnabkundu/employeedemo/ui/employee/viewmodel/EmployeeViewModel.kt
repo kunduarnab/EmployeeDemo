@@ -49,7 +49,7 @@ class EmployeeViewModel @Inject constructor(
         employeeRepository.deleteEmployee(uid)
     }
 
-    fun updateEmployee(employee: Employee, uid:Long) = viewModelScope.launch {
-        employeeRepository.updateEmployee(employee,uid)
+    fun updateEmployee(employee: Employee) = viewModelScope.launch {
+        employeeRepository.updateEmployee(employee)
     }
 }

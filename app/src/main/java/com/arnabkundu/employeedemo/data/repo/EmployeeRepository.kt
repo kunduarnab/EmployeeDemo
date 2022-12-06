@@ -11,13 +11,8 @@ class EmployeeRepository @Inject constructor(
     suspend fun insertEmployee(employee: Employee) =
         appDatabase.getEmployeeDao().insert(employee)
 
-    suspend fun updateEmployee(employee: Employee, uid: Long) =
-        appDatabase.getEmployeeDao().updateEmployee(
-            employee.employee_name,
-            employee.employee_number,
-            employee.employee_salary,
-            uid,
-        )
+    suspend fun updateEmployee(employee: Employee) =
+        appDatabase.getEmployeeDao().update(employee)
 
     fun getAllEmployees() =
         appDatabase.getEmployeeDao().getAllEmployees()
