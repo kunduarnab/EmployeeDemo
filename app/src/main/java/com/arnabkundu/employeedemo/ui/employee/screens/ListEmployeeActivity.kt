@@ -97,7 +97,7 @@ class ListEmployeeActivity : AppCompatActivity(), View.OnClickListener {
 
     private fun onSearch(keyword: String) {
         adapterEmployee.setData(tempList.filterIndexed { index, employee ->
-            employee.employee_name.lowercase().startsWith(keyword.lowercase())
+            employee.employee_name.lowercase().contains(keyword.lowercase())
         })
     }
 
