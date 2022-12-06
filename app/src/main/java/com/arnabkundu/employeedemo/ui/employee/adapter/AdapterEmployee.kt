@@ -32,7 +32,7 @@ class AdapterEmployee(private val listener: ListListener) :
             item.let {
                 binding.name.text = item.employee_name
                 binding.number.text = item.employee_number
-                binding.salary.text = item.employee_salary
+                binding.salary.text = "₹ ${item.employee_salary}"
 
                 binding.deleteBtn.setOnClickListener {
                     listener.onDelete(item)
