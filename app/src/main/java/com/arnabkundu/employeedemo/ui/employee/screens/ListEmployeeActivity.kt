@@ -89,6 +89,7 @@ class ListEmployeeActivity : AppCompatActivity(), View.OnClickListener {
                     ui.recyclerView.show()
                 }
                 adapterEmployee.setData(list)
+                tempList.clear()
                 tempList.addAll(list)
             }
         }
