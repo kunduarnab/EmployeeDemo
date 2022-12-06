@@ -35,6 +35,7 @@
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/regular"
                     android:text="EMPLOYEE NAME"
+                    android:textColor="@color/h1"
                     android:textSize="12sp" />
                 <TextView
                     android:id="@+id/name"
@@ -64,6 +65,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/regular"
                             android:text="EMPLOYEE NUMBER"
+                            android:textColor="@color/h1"
                             android:textSize="12sp" />
 
                         <TextView
@@ -87,6 +89,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/regular"
                             android:text="EMPLOYEE SALARY"
+                            android:textColor="@color/h1"
                             android:textSize="12sp" />
 
                         <TextView
